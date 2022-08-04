@@ -2,7 +2,7 @@ import './App.css';
 
 import { IntlProvider } from 'react-intl';
 import { Routes, Route } from 'react-router-dom';
-// import { SessionExpiredDialog } from '@rio-cloud/rio-session-expired-info';
+import { SessionExpiredDialog } from '@rio-cloud/rio-session-expired-info';
 import ApplicationLayout from '@rio-cloud/rio-uikit/lib/es/ApplicationLayout';
 import NotificationsContainer from '@rio-cloud/rio-uikit/lib/es/NotificationsContainer';
 
@@ -42,11 +42,11 @@ const App = () => {
                 </ApplicationLayout.Header>
                 <ApplicationLayout.Body>
                     <NotificationsContainer />
-                    {/* <SessionExpiredDialog
+                    <SessionExpiredDialog
                         locale={userLocale}
                         onClose={handleSessionExpiredDialogClose}
                         show={showSessionExpired}
-                    /> */}
+                    />
                     <Routes>
                         <Route path={DEFAULT_ROUTE} element={<Intro />} />
                         <Route path={ROUTE_MORE} element={<More />} />
