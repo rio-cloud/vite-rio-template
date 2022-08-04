@@ -217,3 +217,4 @@ mocks/rio-uikit.js
 mocks/core-js.js
 mocks/oidc-client.js
 mocks/rio-user-menu.js
+.env
