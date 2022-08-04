@@ -1,27 +1,32 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export interface User {
-    id: number;
-    uid: string;
-    password: string;
-    first_name: string;
-    last_name: string;
-    username: string;
+    name: {
+        title: string;
+        first: string;
+        last: string;
+    };
     email: string;
-    avatar: string;
-    gender: string;
-    phone_number: string;
-    social_insurance_number: string;
-    date_of_birth: string;
+    picture: {
+        large: string;
+        medium: string;
+        thumbnail: string;
+    };
 }
 
 // Define a service using a base URLand expected endpoints
 export const userApi = createApi({
     reducerPath: 'userApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://random-data-api.com/api/users' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'https://randomuser.me/api/' }),
     endpoints: (builder) => ({
-        fetchUsersWithLimit: builder.query<User[], string>({
-            query: (limit) => `random_user?size=${limit}`,
+        fetchUsers: builder.query<User[], string>({
+            query: () => ({
+                url: '?results=10&inc=name,email,picture',
+                responseHandler: async (response: Response) => {
+                    const data = await response.json();
+                    return data.results;
+                },
+            }),
             keepUnusedDataFor: 10,
         }),
     }),
@@ -29,4 +34,4 @@ export const userApi = createApi({
 
 // Export hooks for usage in function components which are
 // auto-generated based on defined endpoints
-export const { useFetchUsersWithLimitQuery } = userApi;
+export const { useFetchUsersQuery } = userApi;

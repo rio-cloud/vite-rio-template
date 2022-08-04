@@ -4,15 +4,15 @@ import RandomUsers from '../features/users/RandomUsers';
 
 const More = () => (
     <div className={'intro'}>
-    <h1>
-        <FormattedMessage id={'intl-msg:starterTemplate.sublink.more'} />
-    </h1>
-    <div className={'panel panel-default shadow-default'}>
-        <div className={'panel-body'}>
-            <RandomUsers />
+        <h1>
+            <FormattedMessage id={'intl-msg:starterTemplate.sublink.more'} />
+        </h1>
+        <div className={'panel panel-default shadow-default'}>
+            <div className={'panel-body'}>
+                <RandomUsers />
+            </div>
         </div>
     </div>
-</div>
 );
 
 export default More;
