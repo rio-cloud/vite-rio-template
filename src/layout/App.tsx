@@ -14,7 +14,7 @@ import { DEFAULT_ROUTE, ROUTE_MORE } from '../routes/routes';
 import DefaultRedirect from '../routes/DefaultRedirect';
 import RouteUpdater from '../routes/RouteUpdater';
 
-import { getSessionExpiredAcknowledged, hideSessionExpiredDialog } from '../services/appSlice';
+import { getSessionExpiredAcknowledged, hideSessionExpiredDialog } from './appSlice';
 import AppHeader from '../features/header/AppHeader';
 import Intro from '../pages/Intro';
 import More from '../pages/More';
