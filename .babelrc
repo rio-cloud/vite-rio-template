@@ -1,0 +1,6 @@
+// The .babelrc file is used to transpile Typescript to JavaScript
+// to run the tests - see https://www.codementor.io/@rajjeet/add-jest-to-your-typescript-project-with-4-easy-steps-1do5lhfjb1
+{
+    "presets": ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"],
+    "plugins": []
+}
