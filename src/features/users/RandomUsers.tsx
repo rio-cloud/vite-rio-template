@@ -10,9 +10,7 @@ const RandomUsers = () => {
 
     return (
         <div className={'intro'}>
-            <h1>
-                Random Users
-            </h1>
+            <div className="text-size-20 text-medium">Random Users</div>
             {isLoading && <Spinner />}
             {error && <div>{'Users could not be fetched'}</div>}
             {data && data.map((user: User) => <UserItem key={user.id} {...user} />)}

@@ -23,8 +23,8 @@ export const userApi = createApi({
         fetchUsersWithLimit: builder.query<User[], string>({
             query: (limit) => `random_user?size=${limit}`,
             keepUnusedDataFor: 10,
-        })
-    })
+        }),
+    }),
 });
 
 // Export hooks for usage in function components which are
