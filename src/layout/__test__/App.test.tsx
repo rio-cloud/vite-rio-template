@@ -3,9 +3,9 @@ import * as reactRedux from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 
 import App from '../App';
-import messagesEN from '../../translations/en-GB.json';
-import { getDisplayMessages, getLocale } from '../../../configuration/lang/langSlice';
-import { isUserSessionExpired } from '../../../configuration/login/loginSlice';
+import messagesEN from '../../features/translations/en-GB.json';
+import { getDisplayMessages, getLocale } from '../../configuration/lang/langSlice';
+import { isUserSessionExpired } from '../../configuration/login/loginSlice';
 import { getSessionExpiredAcknowledged } from '../appSlice';
 
 jest.mock('react-redux', () => ({
