@@ -9,7 +9,7 @@ const QS_OPTIONS = {
     skipNulls: true, // required to remove empty params
 } as IStringifyOptions;
 
-const BASE_URL = '#list';
+const BASE_URL = '#/intro';
 
 const toQueryString = (query: unknown) => {
     const queryString = qs.stringify(query, QS_OPTIONS);

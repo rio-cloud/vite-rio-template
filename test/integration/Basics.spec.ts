@@ -1,6 +1,6 @@
 import { prepareAndVisit } from '../utils/utils';
 
-describe('Initial rendering of Trustdeck Backoffice', () => {
+describe('Initial rendering of application', () => {
     beforeEach(() => {
         prepareAndVisit();
     });
