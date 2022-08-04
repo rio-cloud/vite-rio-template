@@ -7,7 +7,7 @@
         "start": "vite",
         "build": "tsc && vite build",
         "preview": "vite preview",
-        "test": "react-app-rewired test",
+        "test": "jest src",
         "pretest": "tsc",
         "license-check": "license-checker --production --json --onlyAllow \"`cat whitelist.txt`\" --excludePackages \"rio-startertemplate-web@0.1.0\" --out licenses.txt",
         "lint": "eslint src",
@@ -26,6 +26,7 @@
     "dependencies": {
         "@redux-devtools/extension": "^3.2.2",
         "@reduxjs/toolkit": "^1.8.3",
+        "@rio-cloud/rio-notifications-component": "^0.2.1",
         "@rio-cloud/rio-session-expired-info": "0.9.11",
         "@rio-cloud/rio-uikit": "^0.16.1-beta.11",
         "@rio-cloud/rio-user-menu-component": "^2.0.0-beta-1",

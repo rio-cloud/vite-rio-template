@@ -2,6 +2,7 @@ import { FormattedMessage } from 'react-intl';
 import { NavLink, Link } from 'react-router-dom';
 
 import { DefaultUserMenu } from '@rio-cloud/rio-user-menu-component';
+import { RioNotifications } from '@rio-cloud/rio-notifications-component';
 import ApplicationHeader from '@rio-cloud/rio-uikit/lib/es/ApplicationHeader';
 import IframeResizer from 'iframe-resizer-react';
 
@@ -31,6 +32,7 @@ const AppHeader = () => {
     const environment = import.meta.env.NODE_ENV === 'production' ? 'production' : 'local';
 
     const serviceInfoItem = <ServiceInfo />;
+    const notifications = <RioNotifications />;
     const userMenuItem = <DefaultUserMenu environment={environment} />;
 
     return (
@@ -39,7 +41,7 @@ const AppHeader = () => {
             appNavigator={<IframeResizer className={'iFrameResizer'} src={config.backend.MENU_SERVICE} />}
             homeRoute={<Link to={config.homeRoute || ''} />}
             navItems={navItems}
-            actionBarItems={[serviceInfoItem, userMenuItem]}
+            actionBarItems={[serviceInfoItem, notifications, userMenuItem]}
         />
     );
 };
