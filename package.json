@@ -27,7 +27,7 @@
     "@redux-devtools/extension": "^3.2.2",
     "@reduxjs/toolkit": "^1.8.3",
     "@rio-cloud/rio-session-expired-info": "0.9.10",
-    "@rio-cloud/rio-uikit": "0.16.0",
+    "@rio-cloud/rio-uikit": "^0.16.1-beta.11",
     "@rio-cloud/rio-user-menu-component": "^2.0.0-beta-1",
     "@sentry/browser": "7.7.0",
     "iframe-resizer-react": "^1.1.0",
@@ -43,8 +43,8 @@
   },
   "devDependencies": {
     "@originjs/vite-plugin-commonjs": "^1.0.3",
-    "@rollup/plugin-dynamic-import-vars": "^1.4.3",
     "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-dynamic-import-vars": "^1.4.3",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
