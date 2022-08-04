@@ -55,7 +55,8 @@ export const main = async (renderApp: Function) => {
         },
     } as OAuthConfig;
 
-    const isAllowedToMockAuth = import.meta.env.NODE_ENV !== 'production';
+    const isAllowedToMockAuth = import.meta.env.DEV;
+
     const userManager: UserManager =
         isAllowedToMockAuth && config.login.mockAuthorization
             ? configureMockUserManager(oauthConfig)

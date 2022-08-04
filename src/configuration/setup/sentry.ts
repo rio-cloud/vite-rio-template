@@ -5,7 +5,7 @@ import { config } from '../../config';
 declare const SERVICE_VERSION: string;
 declare const SERVICE_ENVIRONMENT: string;
 
-if (import.meta.env.NODE_ENV === 'production') {
+if (import.meta.env.PROD) {
     // version and environment are defined in the webpack.define plugin
     const release = SERVICE_VERSION;
     const environment = SERVICE_ENVIRONMENT;
