@@ -3,7 +3,7 @@ import type { User } from '../../services/userApi';
 export const UserItem = (props: User) => {
     const { name, email, picture } = props;
     return (
-        <div key={name.first} className={'panel panel-default'}>
+        <div key={name.first} className={'panel panel-default margin-bottom-10'}>
             <div className={'panel-body display-flex align-items-center padding-10'}>
                 <div className="width-60 aspect-ratio-1">
                     <img className="img-responsive rounded-circle" src={picture.thumbnail} />

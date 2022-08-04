@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import RandomUsers from '../features/users/RandomUsers';
 
 const More = () => (
-    <div className={'intro'}>
+    <div className={'intro max-width-900 margin-auto'}>
         <h1>
             <FormattedMessage id={'intl-msg:starterTemplate.sublink.more'} />
         </h1>

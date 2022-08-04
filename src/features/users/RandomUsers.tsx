@@ -1,4 +1,3 @@
-import { FormattedMessage } from 'react-intl';
 import Spinner from '@rio-cloud/rio-uikit/lib/es/Spinner';
 
 import { User, useFetchUsersQuery } from '../../services/userApi';
@@ -7,10 +6,9 @@ import { UserItem } from './UserItem';
 const RandomUsers = () => {
     // Automatically fetch data and return query values via the query hook
     const { data, error, isLoading } = useFetchUsersQuery('20', { refetchOnFocus: true });
-    console.log(data);
 
     return (
-        <div className={'intro'}>
+        <div className={'RandomUser'}>
             <div className="text-size-20 text-medium margin-bottom-15">Random Users</div>
             {isLoading && <Spinner />}
             {error && <div>{'Users could not be fetched'}</div>}
