@@ -20,16 +20,14 @@ const ServiceInfo = () => {
                 <span className={'icon rioglyph rioglyph-info-sign'} />
             </ActionBarItem.Icon>
             <ActionBarItem.Popover title={title}>
-                <div>
-                    <div className={'line-height-largest'}>
-                        <a href={'/'} onClick={handleClick}>
-                            <span>{'Release notes'}</span>
-                        </a>
-                    </div>
-                    <div className={'line-height-largest'}>
+                <ActionBarItem.List>
+                    <ActionBarItem.ListItem icon="rioglyph-hand-right" onClick={handleClick}>
+                        Release notes
+                    </ActionBarItem.ListItem>
+                    <ActionBarItem.ListItem icon="rioglyph-exclamation-sign">
                         <Link to={'/abcd'}>{'Link'}</Link>
-                    </div>
-                </div>
+                    </ActionBarItem.ListItem>
+                </ActionBarItem.List>
             </ActionBarItem.Popover>
         </ActionBarItem>
     );
