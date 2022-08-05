@@ -29,7 +29,7 @@
         "@rio-cloud/rio-notifications-component": "^0.2.2",
         "@rio-cloud/rio-session-expired-info": "0.9.11",
         "@rio-cloud/rio-uikit": "^0.16.1-beta.12",
-        "@rio-cloud/rio-user-menu-component": "^2.0.0-beta-1",
+        "@rio-cloud/rio-user-menu-component": "^2.0.0",
         "@sentry/browser": "7.8.1",
         "events": "^3.3.0",
         "iframe-resizer-react": "^1.1.0",
