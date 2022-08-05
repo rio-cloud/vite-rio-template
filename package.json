@@ -13,7 +13,7 @@
         "lint": "eslint src",
         "lint-fix": "npm run lint -- --fix",
         "audit": "npm audit --production --registry https://registry.npmjs.org --parseable",
-        "dev-mock-server": "nodenv mocks/rio-starter-devmocks.js --exec nodemon",
+        "dev-mock-server": "nodenv mocks/devmock-server.js --exec nodemon",
         "analyze": "source-map-explorer \"build/static/js/*.js\"",
         "format-code": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
         "pull-translations": "phrase pull --access_token $PHRASEAPP_ACCESS_TOKEN && npm run merge-translations",

@@ -23,12 +23,12 @@ const mockUserSettings = (app) => {
                 '</html>'
         );
     });
-}
+};
 
 // Convenience export to use all available mocks
 const mockAll = (app) => {
     mockUserSettings(app);
-}
+};
 
 const app = express();
 
