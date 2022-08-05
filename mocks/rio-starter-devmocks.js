@@ -4,6 +4,8 @@ require('dotenv').config({ path: '.env.development' });
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const DEV_SERVER_PORT = 3001;
+
 const mockUserSettings = (app) => {
     app.use(express.static(__dirname + '/static'));
 
@@ -34,9 +36,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 mockAll(app);
 
-app.listen(import.meta.env.DEV_SERVER_PORT, () =>
-    console.log(`Express dev server is running on localhost:${import.meta.env.DEV_SERVER_PORT}`)
-);
+app.listen(DEV_SERVER_PORT, () => console.log(`Express dev server is running on localhost:${DEV_SERVER_PORT}`));
 
 exports.mockUserSettings = mockUserSettings;
 exports.mockAll = mockAll;
