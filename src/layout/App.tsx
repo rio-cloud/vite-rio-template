@@ -1,7 +1,8 @@
 import './App.css';
 
+import { lazy, Suspense } from 'react';
 import { IntlProvider } from 'react-intl';
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { SessionExpiredDialog } from '@rio-cloud/rio-session-expired-info';
 import ApplicationLayout from '@rio-cloud/rio-uikit/lib/es/ApplicationLayout';
 import NotificationsContainer from '@rio-cloud/rio-uikit/lib/es/NotificationsContainer';
@@ -16,8 +17,10 @@ import RouteUpdater from '../routes/RouteUpdater';
 
 import { getSessionExpiredAcknowledged, hideSessionExpiredDialog } from './appSlice';
 import AppHeader from '../features/header/AppHeader';
-import Intro from '../pages/Intro';
-import More from '../pages/More';
+import { ContentLoader } from '@rio-cloud/rio-uikit';
+
+const Intro = lazy(() => import('../pages/Intro'));
+const More = lazy(() => import('../pages/More'));
 
 const App = () => {
     const dispatch = useAppDispatch();
@@ -48,8 +51,22 @@ const App = () => {
                         show={showSessionExpired}
                     />
                     <Routes>
-                        <Route path={DEFAULT_ROUTE} element={<Intro />} />
-                        <Route path={ROUTE_MORE} element={<More />} />
+                        <Route
+                            path={DEFAULT_ROUTE}
+                            element={
+                                <Suspense fallback={<ContentLoader />}>
+                                    <Intro />
+                                </Suspense>
+                            }
+                        />
+                        <Route
+                            path={ROUTE_MORE}
+                            element={
+                                <Suspense fallback={<ContentLoader />}>
+                                    <More />
+                                </Suspense>
+                            }
+                        />
                         <Route path="*" element={<DefaultRedirect />} />
                     </Routes>
                     <RouteUpdater />
