@@ -28,7 +28,7 @@
         "@reduxjs/toolkit": "^1.8.3",
         "@rio-cloud/rio-notifications-component": "^0.2.2",
         "@rio-cloud/rio-session-expired-info": "0.9.11",
-        "@rio-cloud/rio-uikit": "^0.16.1-beta.12",
+        "@rio-cloud/rio-uikit": "0.16.1-beta.12",
         "@rio-cloud/rio-user-menu-component": "^2.0.0",
         "@sentry/browser": "7.8.1",
         "events": "^3.3.0",
@@ -43,6 +43,9 @@
         "react-redux": "^8.0.2",
         "react-router": "^6.0.2",
         "react-router-dom": "^6.0.2"
+    },
+    "overrides": {
+        "@rio-cloud/rio-uikit": "0.16.1-beta.12"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.18.10",
