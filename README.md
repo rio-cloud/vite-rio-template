@@ -2,4 +2,10 @@
 
 This is the RIO TypeScript template for for building new RIO services.
 
-Clone this template when creating a new app.
+Create a new service app with this template via: 
+
+```
+npx degit rio-cloud/vite-rio-template my-rio-service-web
+```
+
+Or clone the project manually.
