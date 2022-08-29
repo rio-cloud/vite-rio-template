@@ -1,8 +1,11 @@
 # vite-rio-template
 
-This is the RIO TypeScript template for for building new RIO services.
+##Summary
+This is the RIO TypeScript template for building new RIO services based on Vite as build tooling.
 
-Create a new service app with this template via: 
+
+## How-to
+Create a new service app with this template via [degit](https://www.npmjs.com/package/degit):
 
 ```
 npx degit rio-cloud/vite-rio-template my-rio-service-web
