@@ -1,12 +1,9 @@
-import './App.css';
-
-import { lazy, Suspense } from 'react';
+import { lazy } from 'react';
 import { IntlProvider } from 'react-intl';
 import { Route, Routes } from 'react-router-dom';
 import { SessionExpiredDialog } from '@rio-cloud/rio-session-expired-info';
 import ApplicationLayout from '@rio-cloud/rio-uikit/lib/es/ApplicationLayout';
 import NotificationsContainer from '@rio-cloud/rio-uikit/lib/es/NotificationsContainer';
-
 import { DEFAULT_LOCALE } from '../configuration/lang/lang';
 import { isUserSessionExpired } from '../configuration/login/loginSlice';
 import { useAppDispatch, useAppSelector } from '../configuration/setup/hooks';
@@ -14,10 +11,10 @@ import { getDisplayMessages, getLocale } from '../configuration/lang/langSlice';
 import { DEFAULT_ROUTE, ROUTE_MORE } from '../routes/routes';
 import DefaultRedirect from '../routes/DefaultRedirect';
 import RouteUpdater from '../routes/RouteUpdater';
-
 import { getSessionExpiredAcknowledged, hideSessionExpiredDialog } from './appSlice';
 import AppHeader from '../features/header/AppHeader';
-import { ContentLoader } from '@rio-cloud/rio-uikit';
+import SuspendedWithSpinner from '../components/SuspendedWithSpinner';
+import './App.css';
 
 const Intro = lazy(() => import('../pages/Intro'));
 const More = lazy(() => import('../pages/More'));
@@ -54,17 +51,17 @@ const App = () => {
                         <Route
                             path={DEFAULT_ROUTE}
                             element={
-                                <Suspense fallback={<ContentLoader />}>
+                                <SuspendedWithSpinner>
                                     <Intro />
-                                </Suspense>
+                                </SuspendedWithSpinner>
                             }
                         />
                         <Route
                             path={ROUTE_MORE}
                             element={
-                                <Suspense fallback={<ContentLoader />}>
+                                <SuspendedWithSpinner>
                                     <More />
-                                </Suspense>
+                                </SuspendedWithSpinner>
                             }
                         />
                         <Route path="*" element={<DefaultRedirect />} />
