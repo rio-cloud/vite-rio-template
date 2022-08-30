@@ -16,6 +16,7 @@ import AppHeader from '../features/header/AppHeader';
 import SuspendedWithSpinner from '../components/SuspendedWithSpinner';
 import './App.css';
 
+// Lazy load pages for better performance and automatically split the bundle accordingly
 const Intro = lazy(() => import('../pages/Intro'));
 const More = lazy(() => import('../pages/More'));
 
