@@ -15,6 +15,7 @@ export interface ConfigState {
         redirectUri: string | undefined;
         silentRedirectUri: string | undefined;
     };
+    enableMockServer: boolean;
     logoutUri: string | undefined;
     sentryToken: string | undefined;
     sentryModuleName: string;
@@ -39,6 +40,7 @@ export const config: ConfigState = {
         redirectUri: import.meta.env.VITE_LOGIN_REDIRECT_URI,
         silentRedirectUri: import.meta.env.VITE_LOGIN_SILENT_REDIRECT_URI,
     },
+    enableMockServer: import.meta.env.DEV || import.meta.env.TEST,
     logoutUri: import.meta.env.VITE_LOGOUT_URI,
     sentryToken: import.meta.env.VITE_SENTRY_DSN,
     sentryModuleName: 'starterTemplate',
