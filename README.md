@@ -42,3 +42,24 @@ The RIO template is opinionated and comes already with some pre-defined librarie
 - *Static code analysis and formatting*:
     - [ESLint](https://eslint.org/)
     - [Prettier](https://prettier.io/) for autoformatting source code
+
+
+## Folder Structure
+A short explanation of what each folder is meant for:
+
+- **src**
+    - **components**: all service-specific components that are used multiple times across the service. Theses components are generic and reusable. They do not relate to a ceartain feature. Imagine a custom input with validation component that are used in various features like in different forms.
+    - **configuration**: Service configuration like login, token handling, language settings or general setup files like the redux store
+    - **data**: all relevant files for data definition to be used for the service; i.e. table configuration; initial service data or configurations, date formatter, currencies, etc.
+    - **features**: the folder for all feature-relevant things. Each feature is meant to be in a dedicated subfolder that colocates feature-relevant files. Examples are header, sidebars, maps, trees, user lists, tables, forms, etc. Features are rather isolated and don't interact with other features. This way, they are easy to replace, remove, or change. Features are combined on pages.
+    - **hooks**: all custom hooks used accross the project
+    - **layout**: the folder for the overarching layouts as defined in App.tsx
+    - **pages**: the folder for all navigatable service pages. Pages are composed of features and components. For the Frontend template, these are the "intro" and "more" pages. It actually represents, what is defined in the header as routes. But this could also be sub pages in some cases.
+    - **routes**: all route-related files like route definitions, route updater, route hooks etc.
+    - **services**: all service API connections, redux-toolkit-query APIs or thunks, io-ts converter, model types etc.
+    - **utils**: common utility files and functions
+- **tests**
+    - **integration**: all cypress integration tests
+    - **utils**: utility functions that are used in integration tests
+
+Note, there is no dedicated root folder for all the type files on purpose, as we believe that the typings should be colocated to the files where they originate from. Means, component types belong to the respective component folder, model types belong to the respective api in the service folder etc.
