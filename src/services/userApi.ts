@@ -14,7 +14,7 @@ export interface User {
     };
 }
 
-// Define a service using a base URLand expected endpoints
+// Define a service using a base URL and expected endpoints
 export const userApi = createApi({
     reducerPath: 'userApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://randomuser.me/api/' }),
