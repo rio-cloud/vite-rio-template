@@ -63,3 +63,57 @@ A short explanation of what each folder is meant for:
     - **utils**: utility functions that are used in integration tests
 
 Note, there is no dedicated root folder for all the type files on purpose, as we believe that the typings should be colocated to the files where they originate from. This means, that component types belong to the respective component folder, model types belong to the respective API in the service folder, etc.
+
+
+## Migrate existing projects to Vite
+- Add vite dependencies to jour project
+    ````
+    npm i -D vite @vitejs/plugin-react babel-plugin-transform-vite-meta-env rollup-plugin-visualizer
+    ````
+- Remove old dependencies
+    ````
+    npm uninstall react-scripts react-app-rewired source-map-explorer style-loader css-loader
+    ````
+- Copy `vite.config.ts` to your project
+- Update package.json scripts
+    - Remove script `eject` as this is no longer needed
+    - Update scripts `start`, `build` and `test` accordingly to use vite
+    ````
+    "start": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "jest src",
+    ````
+- Move the `index.html` out of the public folder into the root. 
+    - Adapt the entry point for your index.tsx file to: `<script type="module" src="/src/index.tsx"></script>`
+    - Remove the public folder
+    - Adapt the CICD scripts accoringly
+- Remove `analyze` script for not using "source-map-explorer" but rather "rollup-plugin-visualizer". Later is already configured in `vite.config.ts`
+- Replace node environment variables with vite imports
+    - `process.env.REACT_APP_*` to `import.meta.env.VITE_*`
+    - `process.env.NODE_ENV !== 'production'` with `import.meta.env.DEV`
+- Rename REACT_APP_* config variables to VITE_*
+    - Update .env.production and .env.development file as well as src/config.ts plus all occurences in your code
+- Create an empty .env file as vite checks for that. Use .env.local for your local config though
+- Add files to your .gitignore
+    ````
+    .local
+    .env
+    stats.html
+    ````
+- Remove your old `webpack.config.js` and all related files and dependencies like:
+    `````
+    npm uninstall webpack webpack-bundle-analyzer webpack-cli webpack-dev-server @webpack-cli/init html-webpack-plugin compression-webpack-plugin babel-loader css-loader less-loader file-loader html-loader raw-loader script-loader style-loader url-loader ts-loader less mini-css-extract-plugin
+    `````
+
+- Rename .js or .ts files to .jsx or .tsx in case they are React components and contain JSX syntax
+- Optionaly, change default port to your old project settings by editing the `vite.config.ts`and add the server.port
+    ````
+    export default defineConfig({
+        // ....
+        server: {
+            port: 8090,
+        },
+    });
+    ````
+- Recommended: Adapt the project folder structure to the template folder structure. This will ensure that developers feel right at home when working with your project and other projects.
