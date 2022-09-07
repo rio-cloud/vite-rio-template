@@ -45,7 +45,7 @@ export const config: ConfigState = {
         silentRedirectUri: import.meta.env.VITE_LOGIN_SILENT_REDIRECT_URI,
     },
     serviceVersion: packageJson.version,
-    serviceEnvironment: import.meta.env.MODE;
+    serviceEnvironment: import.meta.env.MODE,
     enableMockServer: import.meta.env.DEV || import.meta.env.TEST,
     logoutUri: import.meta.env.VITE_LOGOUT_URI,
     sentryToken: import.meta.env.VITE_SENTRY_DSN,
