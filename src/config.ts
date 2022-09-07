@@ -1,3 +1,5 @@
+import packageJson from '../package.json';
+
 export interface ConfigState {
     backend: {
         AUTHENTICATION_SERVICE: string | undefined;
@@ -15,6 +17,8 @@ export interface ConfigState {
         redirectUri: string | undefined;
         silentRedirectUri: string | undefined;
     };
+    serviceVersion: string;
+    serviceEnvironment: string;
     enableMockServer: boolean;
     logoutUri: string | undefined;
     sentryToken: string | undefined;
@@ -40,6 +44,8 @@ export const config: ConfigState = {
         redirectUri: import.meta.env.VITE_LOGIN_REDIRECT_URI,
         silentRedirectUri: import.meta.env.VITE_LOGIN_SILENT_REDIRECT_URI,
     },
+    serviceVersion: packageJson.version,
+    serviceEnvironment: import.meta.env.MODE;
     enableMockServer: import.meta.env.DEV || import.meta.env.TEST,
     logoutUri: import.meta.env.VITE_LOGOUT_URI,
     sentryToken: import.meta.env.VITE_SENTRY_DSN,
