@@ -72,7 +72,7 @@ Note, there is no dedicated root folder for all the type files on purpose, as we
     ````
 - Remove old dependencies
     ````
-    npm uninstall react-scripts react-app-rewired source-map-explorer style-loader css-loader
+    npm uninstall react-scripts react-app-rewired source-map-explorer webpack webpack-bundle-analyzer webpack-cli webpack-dev-server @webpack-cli/init html-webpack-plugin compression-webpack-plugin babel-loader css-loader less-loader file-loader html-loader raw-loader script-loader style-loader url-loader ts-loader less mini-css-extract-plugin
     ````
 - Copy `vite.config.ts` to your project
 - Update package.json scripts
@@ -101,17 +101,27 @@ Note, there is no dedicated root folder for all the type files on purpose, as we
     .env
     stats.html
     ````
-- Remove your old `webpack.config.js` and all related files and dependencies like:
-    `````
-    npm uninstall webpack webpack-bundle-analyzer webpack-cli webpack-dev-server @webpack-cli/init html-webpack-plugin compression-webpack-plugin babel-loader css-loader less-loader file-loader html-loader raw-loader script-loader style-loader url-loader ts-loader less mini-css-extract-plugin
-    `````
-
+- Remove your old `webpack.config.js` and all related files
 - Rename .js or .ts files to .jsx or .tsx in case they are React components and contain JSX syntax
+- In case you have custom CSS in one or more .less files, you might need to add the entry to your index.ts by adding a dedicated import of your main .less file
+- In case you'll face an error message like *"Request url is outside of Vite serving allow list"*, you might want to add the following to your vite.config:
+    `````
+    export default defineConfig({
+        // ....
+        server: {
+            // ....
+            fs: {
+                strict: false,
+            },
+        },
+    });
+    `````
 - Optionaly, change default port to your old project settings by editing the `vite.config.ts`and add the server.port
     ````
     export default defineConfig({
         // ....
         server: {
+            // ....
             port: 8090,
         },
     });
