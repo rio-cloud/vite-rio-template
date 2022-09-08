@@ -55,12 +55,9 @@ export const main = async (renderApp: Function) => {
         },
     } as OAuthConfig;
 
-    const isAllowedToMockAuth = import.meta.env.DEV;
-
-    const userManager: UserManager =
-        isAllowedToMockAuth && config.login.mockAuthorization
-            ? configureMockUserManager(oauthConfig)
-            : configureUserManager(oauthConfig, createUserManager());
+    const userManager: UserManager = config.login.mockAuthorization
+        ? configureMockUserManager(oauthConfig)
+        : configureUserManager(oauthConfig, createUserManager());
 
     const signinSilent = userManager.signinSilent.bind(userManager);
     document.addEventListener(EVENT_USER_LANGUAGE_CHANGED, () => signinSilent());

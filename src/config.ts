@@ -38,7 +38,7 @@ export const config: ConfigState = {
         //       well as the needed OAuth scopes here
         clientId: '<you-need-to-obtain-your-own-client-id>',
         oauthScope: ['openid', 'profile', 'email'],
-        mockAuthorization: import.meta.env.VITE_LOGIN_MOCK_AUTHORIZATION,
+        mockAuthorization: import.meta.env.DEV,
         mockLocale: import.meta.env.VITE_LOGIN_MOCK_LOCALE,
         preventRedirect: import.meta.env.VITE_LOGIN_PREVENT_REDIRECT,
         redirectUri: import.meta.env.VITE_LOGIN_REDIRECT_URI,
