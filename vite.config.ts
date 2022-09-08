@@ -6,6 +6,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 export default defineConfig({
     plugins: [react(), visualizer()],
     build: {
+        sourcemap: true,
         rollupOptions: {
             manualChunks: {
                 commonVendor: ['core-js', '@sentry/browser', 'framer-motion', 'oidc-client-ts'],
