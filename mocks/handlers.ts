@@ -1,8 +1,8 @@
-import { rest, setupWorker } from 'msw';
+import { rest } from 'msw';
 
 // See https://mswjs.io/docs/basics/request-matching
 // for details on how to define the matching URL
-const handlers = [
+export const handlers = [
     rest.get('https://randomuser.me/api', (req, res, ctx) => {
         return res(
             ctx.json({
@@ -58,6 +58,3 @@ const handlers = [
         );
     }),
 ];
-
-// This configures a Service Worker with the given request handlers.
-export const worker = setupWorker(...handlers);
