@@ -13,6 +13,18 @@ npx degit rio-cloud/vite-rio-template my-rio-service-web
 
 Or clone the project manually.
 
+### How to configure your new project
+- Create an empty `.env` file as vite checks for that. Copy the `.env.development` into a `.env.local` for your local config and adapt it to your needs.
+- Update the `package.json` to set the application name and use that name also for the license_check script.
+- *Optional:* Change the dev server port in `vite.config.ts` to your likings. If you change t, don't forget to update it in the `package.json` for the `cypress-ci` script as well as in your `.env.local` config.
+
+- #### Production configuration
+    - Request a Sentry token to use Sentry in production. Add it to the `.env.production` config file.
+    - Define the redirect url for your service in `.env.production`.
+    - Request and supply your App's `client_id` as well as the needed OAuth scopes in `src/config.ts`.
+
+---
+
 ## Tech Stack
 The RIO template is opinionated and comes already with some pre-defined libraries to give you a head start and streamline the various projects so devs feel familiar when working with multiple projects. If you still want to use something else, feel free to remove or adapt the sample implementations.
 
@@ -28,6 +40,8 @@ The RIO template is opinionated and comes already with some pre-defined librarie
     - [RTK Query](https://redux-toolkit.js.org/rtk-query/overview) since it is within the same ecosystem as Redux
 - *UI component library*:
     - [RIO UIKIT](https://uikit.developers.rio.cloud)
+- Form validation
+    - [React Hook Form](https://react-hook-form.com/)
 - *Testing*
     - [Jest](https://jestjs.io/) as test runner and testing framework for unit tests
     - [Testing Library](https://testing-library.com/) as the testing utility
