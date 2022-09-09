@@ -15,15 +15,13 @@ import App from './layout/App';
 
 const renderApplication = () => {
     ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-        <React.StrictMode>
-            <ErrorBoundary>
-                <Provider store={store}>
-                    <HashRouter>
-                        <App />
-                    </HashRouter>
-                </Provider>
-            </ErrorBoundary>
-        </React.StrictMode>
+        <ErrorBoundary>
+            <Provider store={store}>
+                <HashRouter>
+                    <App />
+                </HashRouter>
+            </Provider>
+        </ErrorBoundary>
     );
 };
 
