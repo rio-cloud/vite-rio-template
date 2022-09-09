@@ -8,7 +8,7 @@
         "build": "vite build",
         "preview": "vite preview",
         "test": "jest __test__",
-        "license-check": "license-checker --production --json --onlyAllow \"`cat whitelist.txt`\" --excludePackages \"rio-startertemplate-web@0.1.0\" --out licenses.txt",
+        "license-check": "license-checker --production --json --onlyAllow \"`cat whitelist.txt`\" --excludePackages \"@rio-cloud/vite-rio-template@0.1.0\" --out licenses.txt",
         "lint": "eslint src",
         "lint-fix": "npm run lint -- --fix",
         "audit": "npm audit --production --registry https://registry.npmjs.org --parseable",
