@@ -14,9 +14,9 @@ npx degit rio-cloud/vite-rio-template my-rio-service-web
 Or clone the project manually.
 
 ### How to configure your new project
-- Create an empty `.env` file as vite checks for that. Copy the `.env.development` into a `.env.local` for your local config and adapt it to your needs.
+- Copy the `.env.development` into a `.env.local` for your local config and adapt it to your needs.
 - Update the `package.json` to set the application name and use that name also for the license_check script.
-- *Optional:* Change the dev server port in `vite.config.ts` to your likings. If you change t, don't forget to update it in the `package.json` for the `cypress-ci` script as well as in your `.env.local` config.
+- *Optional:* Change the dev server port in `vite.config.ts` to your likings. In case you change it, don't forget to update it in the `package.json` for the `cypress-ci` script as well as in your `.env.local` config.
 
 - #### Production configuration
     - Request a Sentry token to use Sentry in production. Add it to the `.env.production` config file.
@@ -108,7 +108,7 @@ Note, there is no dedicated root folder for all the type files on purpose, as we
     - `process.env.NODE_ENV !== 'production'` with `import.meta.env.DEV`
 - Rename REACT_APP_* config variables to VITE_*
     - Update .env.production and .env.development file as well as src/config.ts plus all occurences in your code
-- Create an empty .env file as vite checks for that. Use .env.local for your local config though
+- Copy the `.env.development` into a `.env.local` for your local config.
 - Add files to your .gitignore
     ````
     .local
