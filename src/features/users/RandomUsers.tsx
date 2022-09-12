@@ -8,7 +8,7 @@ const RandomUsers = () => {
     const { data, error, isLoading } = useFetchUsersQuery('20', { refetchOnFocus: true });
 
     return (
-        <div className={'RandomUser'}>
+        <div className="RandomUser">
             <div className="text-size-20 text-medium margin-bottom-15">Random Users</div>
             {isLoading && <Spinner />}
             {error && <div>{'Users could not be fetched'}</div>}

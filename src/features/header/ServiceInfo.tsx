@@ -10,14 +10,14 @@ const ServiceInfo = () => {
     const title = (
         <div>
             <span>{serviceInfoTitle}</span>
-            <span className={'text-color-gray margin-left-10'}>{serviceInfoVersion}</span>
+            <span className="text-color-gray margin-left-10">{serviceInfoVersion}</span>
         </div>
     );
 
     return (
-        <ActionBarItem id={'serviceInfo'} className={'myItem'}>
+        <ActionBarItem id="serviceInfo" className="myItem">
             <ActionBarItem.Icon>
-                <span className={'icon rioglyph rioglyph-info-sign'} />
+                <span className="icon rioglyph rioglyph-info-sign" />
             </ActionBarItem.Icon>
             <ActionBarItem.Popover title={title}>
                 <ActionBarItem.List>
@@ -25,7 +25,7 @@ const ServiceInfo = () => {
                         Release notes
                     </ActionBarItem.ListItem>
                     <ActionBarItem.ListItem icon="rioglyph-exclamation-sign">
-                        <Link to={'/abcd'}>{'Link'}</Link>
+                        <Link to="/abcd">{'Link'}</Link>
                     </ActionBarItem.ListItem>
                 </ActionBarItem.List>
             </ActionBarItem.Popover>
