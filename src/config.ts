@@ -1,5 +1,7 @@
 import packageJson from '../package.json';
 
+const asBool = (value: string | undefined): boolean => value === 'true';
+
 export interface ConfigState {
     backend: {
         AUTHENTICATION_SERVICE: string | undefined;
@@ -40,7 +42,7 @@ export const config: ConfigState = {
         oauthScope: ['openid', 'profile', 'email'],
         mockAuthorization: import.meta.env.DEV,
         mockLocale: import.meta.env.VITE_LOGIN_MOCK_LOCALE,
-        preventRedirect: import.meta.env.VITE_LOGIN_PREVENT_REDIRECT,
+        preventRedirect: asBool(import.meta.env.VITE_LOGIN_PREVENT_REDIRECT),
         redirectUri: import.meta.env.VITE_LOGIN_REDIRECT_URI,
         silentRedirectUri: import.meta.env.VITE_LOGIN_SILENT_REDIRECT_URI,
     },
