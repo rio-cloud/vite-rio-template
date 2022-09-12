@@ -36,7 +36,7 @@ const MyForm = () => {
                 <div className={`form-group ${errors.email ? 'has-feedback has-error' : ''}`}>
                     <label className="control-label">E-Mail*</label>
                     <input
-                        type="email"
+                        type="text"
                         className="form-control"
                         placeholder="john.doe@rio.cloud"
                         {...register('email', {
