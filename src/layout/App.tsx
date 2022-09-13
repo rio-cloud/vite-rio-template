@@ -37,7 +37,7 @@ const App = () => {
 
     return (
         <IntlProvider defaultLocale={DEFAULT_LOCALE} key={userLocale} locale={userLocale} messages={displayMessages}>
-            <ApplicationLayout className={'StarterTemplate'}>
+            <ApplicationLayout data-testid={'app-layout'}>
                 <ApplicationLayout.Header>
                     <AppHeader />
                 </ApplicationLayout.Header>

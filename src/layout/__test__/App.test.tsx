@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import * as reactRedux from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 
@@ -40,18 +40,16 @@ describe('Test App', () => {
         useSelectorMock.mockClear();
     });
 
-    test('Application layout is rendered', () => {
-        const { container } = renderWithRouter(<App />);
+    test('Application layout is rendered', async () => {
+        const { findByTestId } = renderWithRouter(<App />);
 
-        const element = container.firstChild as HTMLElement;
-        expect(element.classList).toContain('StarterTemplate');
+        await waitFor(async () => {
+            const layout = await findByTestId('app-layout');
+            expect(layout).toBeInTheDocument();
+        });
     });
 });
 
 const renderWithRouter = (component: JSX.Element) => {
-    return render(
-        <HashRouter>
-            {component}
-        </HashRouter>
-    );
+    return render(<HashRouter>{component}</HashRouter>);
 };
