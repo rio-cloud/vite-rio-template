@@ -7,6 +7,7 @@ const MyForm = () => {
         register,
         handleSubmit,
         formState: { errors, isDirty },
+        trigger,
     } = useForm<FormData>({ mode: 'onSubmit' });
 
     const onSubmit = (data: FormData) => console.log(data);
@@ -43,6 +44,10 @@ const MyForm = () => {
                             required: true,
                             pattern: /^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*$/i,
                         })}
+                        onChange={() =>
+                            // Optional: triggers validation of the name input as a related/dependant input
+                            trigger('name')
+                        }
                     />
                     {errors.email && (
                         <>
