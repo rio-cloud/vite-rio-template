@@ -76,8 +76,6 @@ export const configureUserManager = (oauthConfig: OAuthConfig, userManager: User
 };
 
 export const configureMockUserManager = (oauthConfig: OAuthConfig): UserManager => {
-    console.warn('[configuration/login/oidc-session] Using mocked authorization due to config setting');
-
     const signinSilent = () => {
         const userSettings = {
             access_token: 'valid-mocked-oauth-bogus-token',
