@@ -1,16 +1,18 @@
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { IntlProvider } from 'react-intl';
 
 import Intro from '../Intro';
 import messagesEN from '../../features/translations/en-GB.json';
 
 it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(
+    const container = document.createElement('div');
+    const root = createRoot(container!);
+
+    root.render(
         <IntlProvider locale={'en'} messages={messagesEN}>
             <Intro />
-        </IntlProvider>,
-        div
+        </IntlProvider>
     );
-    ReactDOM.unmountComponentAtNode(div);
+
+    root.unmount();
 });
