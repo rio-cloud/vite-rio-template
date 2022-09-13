@@ -29,7 +29,7 @@ const AppHeader = () => {
         },
     ];
 
-    const environment = import.meta.env.NODE_ENV === 'production' ? 'production' : 'local';
+    const environment = import.meta.env.PROD ? 'production' : 'local';
 
     const serviceInfoItem = <ServiceInfo />;
     const notifications = <RioNotifications />;
