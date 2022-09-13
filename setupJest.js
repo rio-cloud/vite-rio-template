@@ -13,3 +13,6 @@ const intersectionObserverMock = () => ({
     disconnect: () => null,
 });
 window.IntersectionObserver = jest.fn().mockImplementation(intersectionObserverMock);
+
+// Add fetch mock for jest since fetch is not available
+require('jest-fetch-mock').enableMocks();
