@@ -23,9 +23,14 @@ module.exports = {
         'eslint-plugin-prefer-arrow',
         'eslint-plugin-jest',
         'eslint-plugin-compat',
+        'testing-library',
         '@typescript-eslint',
     ],
     rules: {
+        'testing-library/await-async-query': 'error',
+        'testing-library/no-await-sync-query': 'error',
+        'testing-library/no-debugging-utils': 'warn',
+        'testing-library/no-dom-import': 'off',
         '@typescript-eslint/adjacent-overload-signatures': 'error',
         '@typescript-eslint/array-type': [
             'error',
@@ -176,7 +181,7 @@ module.exports = {
         'no-undef-init': 'error',
         'no-underscore-dangle': 'error',
         'no-unsafe-finally': 'error',
-        'no-unused-expressions': ['error', { 'allowShortCircuit': true }],
+        'no-unused-expressions': ['error', { allowShortCircuit: true }],
         'no-unused-labels': 'error',
         'no-unexpected-multiline': 'off',
         'no-use-before-define': 'off',
@@ -228,7 +233,7 @@ module.exports = {
             },
         ],
         'use-isnan': 'error',
-        'valid-typeof': 'off'
+        'valid-typeof': 'off',
     },
     overrides: [
         {
