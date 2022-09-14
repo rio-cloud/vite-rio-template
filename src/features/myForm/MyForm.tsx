@@ -1,28 +1,71 @@
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
+import Select from '@rio-cloud/rio-uikit/lib/es/Select';
+import ClearableInput from '@rio-cloud/rio-uikit/lib/es/ClearableInput';
 
-type FormData = { name: string; email: string };
+type SelectOptionType = {
+    label: string;
+    id: string;
+    selected?: boolean;
+};
+
+type FormData = {
+    name: string;
+    email: string;
+    formOfAddressId: string;
+};
+
+const defaultSelectOptions = [
+    { id: 'mr', label: 'Mr.' },
+    { id: 'ms', label: 'Ms.' },
+];
 
 const MyForm = () => {
     const {
         register,
         handleSubmit,
-        formState: { errors, isDirty },
+        control,
         trigger,
+        formState: { errors, isDirty },
     } = useForm<FormData>({ mode: 'onSubmit' });
 
     const onSubmit = (data: FormData) => console.log(data);
+
+    const getSelectOptions = (selectedValue: string) =>
+        defaultSelectOptions.map(
+            (item: SelectOptionType): SelectOptionType => ({
+                ...item,
+                selected: item.id === selectedValue,
+            })
+        );
 
     return (
         <div className="margin-auto max-width-400">
             <div className="text-size-h3 margin-bottom-15">Form Example</div>
             <form onSubmit={handleSubmit(onSubmit)}>
+                {/* Example for UIKIT select component */}
+                <div className="form-group">
+                    <label>Form of address</label>
+                    <Controller
+                        control={control}
+                        name="formOfAddressId"
+                        render={({ field: { onChange, value } }) => (
+                            <Select
+                                placeholder="Please select..."
+                                options={getSelectOptions(value)}
+                                onChange={(selectedOption: SelectOptionType) => onChange(selectedOption.id)}
+                            />
+                        )}
+                    />
+                </div>
+
+                {/* Example for required UIKIT input component */}
                 <div className={`form-group ${errors.name ? 'has-feedback has-error' : ''}`}>
                     <label className="control-label">Name*</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        placeholder="John Doe"
-                        {...register('name', { required: true })}
+                    <Controller
+                        control={control}
+                        name="name"
+                        rules={{ required: true }}
+                        render={({ field }) => <ClearableInput placeholder="John Doe" {...field} />}
                     />
                     {errors.name && (
                         <>
@@ -34,6 +77,7 @@ const MyForm = () => {
                     )}
                 </div>
 
+                {/* Example for native required input with pattern that requires another field to be set */}
                 <div className={`form-group ${errors.email ? 'has-feedback has-error' : ''}`}>
                     <label className="control-label">E-Mail*</label>
                     <input
@@ -58,6 +102,7 @@ const MyForm = () => {
                         </>
                     )}
                 </div>
+
                 <div className="display-flex justify-content-end margin-top-25">
                     <button type="submit" className="btn btn-primary" disabled={!isDirty}>
                         Submit
