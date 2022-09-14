@@ -14,7 +14,7 @@ type FormData = {
     formOfAddressId: string;
 };
 
-const defaultSelectOptions = [
+const formOfAddressOptions = [
     { id: 'mr', label: 'Mr.' },
     { id: 'ms', label: 'Ms.' },
 ];
@@ -30,8 +30,8 @@ const MyForm = () => {
 
     const onSubmit = (data: FormData) => console.log(data);
 
-    const getSelectOptions = (selectedValue: string) =>
-        defaultSelectOptions.map(
+    const getFormOfAddressOptions = (selectedValue: string) =>
+        formOfAddressOptions.map(
             (item: SelectOptionType): SelectOptionType => ({
                 ...item,
                 selected: item.id === selectedValue,
@@ -46,12 +46,12 @@ const MyForm = () => {
                 <div className="form-group">
                     <label>Form of address</label>
                     <Controller
-                        control={control}
                         name="formOfAddressId"
+                        control={control}
                         render={({ field: { onChange, value } }) => (
                             <Select
                                 placeholder="Please select..."
-                                options={getSelectOptions(value)}
+                                options={getFormOfAddressOptions(value)}
                                 onChange={(selectedOption: SelectOptionType) => onChange(selectedOption.id)}
                             />
                         )}
@@ -62,8 +62,8 @@ const MyForm = () => {
                 <div className={`form-group ${errors.name ? 'has-feedback has-error' : ''}`}>
                     <label className="control-label">Name*</label>
                     <Controller
-                        control={control}
                         name="name"
+                        control={control}
                         rules={{ required: true }}
                         render={({ field }) => <ClearableInput placeholder="John Doe" {...field} />}
                     />
