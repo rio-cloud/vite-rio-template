@@ -48,7 +48,7 @@ export const config: ConfigState = {
     },
     serviceVersion: packageJson.version,
     serviceEnvironment: import.meta.env.MODE,
-    enableMockServer: import.meta.env.DEV || import.meta.env.TEST,
+    enableMockServer: import.meta.env.DEV,
     logoutUri: import.meta.env.VITE_LOGOUT_URI,
     sentryToken: import.meta.env.VITE_SENTRY_DSN,
     sentryModuleName: 'starterTemplate',
