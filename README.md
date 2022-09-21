@@ -82,7 +82,7 @@ Note, there is no dedicated root folder for all the type files on purpose, as we
 ## Migrate existing projects to Vite
 - Add vite dependencies to jour project
     ````
-    npm i -D vite @vitejs/plugin-react babel-plugin-transform-vite-meta-env rollup-plugin-visualizer
+    npm i -D vite @vitejs/plugin-react babel-plugin-transform-vite-meta-env rollup-plugin-visualizer events
     ````
 - Remove old dependencies
     ````
@@ -140,4 +140,5 @@ Note, there is no dedicated root folder for all the type files on purpose, as we
         },
     });
     ````
+- In case you use react-router v5, you might update the `history` package to min v5.3.0
 - Recommended: Adapt the project folder structure to the template folder structure. This will ensure that developers feel right at home when working with your project and other projects.
