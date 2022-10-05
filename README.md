@@ -94,7 +94,7 @@ Note, there is no dedicated root folder for all the type files on purpose, as we
     - Update scripts `start`, `build` and `test` accordingly to use vite
     ````
     "start": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "test": "jest src",
     ````
