@@ -152,13 +152,19 @@ Note, there is no dedicated root folder for all the type files on purpose, as we
     npm i -D msw
     ````
 - Copy the provided `mockServiceWorker.js` file from the vite-template or from the MSW documentation to your project
-- Start the service worker from your application. Add the following to your index.tsx
+- Start the service worker from your application in dev mode. Add the following to your index.tsx. Note: when server worker is not dynamically loaded it will be added to your build bundle.
     ````
-    import { worker } from '../mocks/serviceMock';
-    import { config } from './config';
+    if (import.meta.env.DEV && config.enableMockServer) {
+        import('../mocks/serviceMock').then(({ worker }) => {
+            worker.start();
+            main(renderApplication);
+        });
+    }
 
-    if (config.enableMockServer) {
-        worker.start();
+    if (window.location.href.startsWith(config.login.redirectUri as string)) {
+        handleLoginRedirect();
+    } else if (import.meta.env.PROD) {
+        main(renderApplication);
     }
     ````
 - Copy the `mocks/serviceMock.ts` from the vite template to your project
