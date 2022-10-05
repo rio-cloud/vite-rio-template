@@ -82,7 +82,7 @@ Note, there is no dedicated root folder for all the type files on purpose, as we
 ## Migrate existing projects to Vite
 - Add vite dependencies to jour project
     ````
-    npm i -D vite @vitejs/plugin-react babel-plugin-transform-vite-meta-env rollup-plugin-visualizer events
+    npm i -D vite @vitejs/plugin-react babel-plugin-transform-vite-meta-env rollup-plugin-visualizer events @babel/preset-env @babel/preset-typescript @babel/preset-react jest-fetch-mock
     ````
 - Remove old dependencies
     ````
@@ -117,6 +117,8 @@ Note, there is no dedicated root folder for all the type files on purpose, as we
     ````
 - Remove your old `webpack.config.js` and all related files
 - Rename .js or .ts files to .jsx or .tsx in case they are React components and contain JSX syntax
+    Helper code to rename all files inside a folder to tsx
+    ```for f in *.ts; do mv -- "$f" "${f%.ts}.tsx"; done```
 - In case you have custom CSS in one or more .less files, you might need to add the entry to your index.ts by adding a dedicated import of your main .less file
 - In case you'll face an error message like *"Request url is outside of Vite serving allow list"*, you might want to add the following to your vite.config:
     `````
@@ -141,4 +143,5 @@ Note, there is no dedicated root folder for all the type files on purpose, as we
     });
     ````
 - In case you use react-router v5, you might update the `history` package to min v5.3.0
+- If you use import alias like '~/', replace them with path imports as vite does not know any alias by default
 - Recommended: Adapt the project folder structure to the template folder structure. This will ensure that developers feel right at home when working with your project and other projects.
