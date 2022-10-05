@@ -145,3 +145,21 @@ Note, there is no dedicated root folder for all the type files on purpose, as we
 - In case you use react-router v5, you might update the `history` package to min v5.3.0
 - If you use import alias like '~/', replace them with path imports as vite does not know any alias by default
 - Recommended: Adapt the project folder structure to the template folder structure. This will ensure that developers feel right at home when working with your project and other projects.
+
+### Migrate to Mock Service Worker (MSW)
+- Add MWS dependency to package.json
+    ````
+    npm i -D msw
+    ````
+- Copy the provided `mockServiceWorker.js` file from the vite-template or from the MSW documentation to your project
+- Start the service worker from your application. Add the following to your index.tsx
+    ````
+    import { worker } from '../mocks/serviceMock';
+    import { config } from './config';
+
+    if (config.enableMockServer) {
+        worker.start();
+    }
+    ````
+- Copy the `mocks/serviceMock.ts` from the vite template to your project
+- Create handler files and move old express dev-server-mocks to the new handlers and replace require imports
