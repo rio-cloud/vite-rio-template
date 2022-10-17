@@ -94,9 +94,9 @@
     "browserslist": [
         "last 2 versions",
         "last 5 Chrome versions",
-        "Firefox >= 60",
-        "Edge >= 15",
-        "Safari >= 10"
+        "Firefox >= 90",
+        "Edge >= 95",
+        "Safari >= 14"
     ],
     "husky": {
         "hooks": {
