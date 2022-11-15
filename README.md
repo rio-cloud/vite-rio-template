@@ -62,6 +62,7 @@ The RIO template is opinionated and comes already with some pre-defined librarie
 A short explanation of what each folder is meant for:
 
 - **src**
+    - **assets**: The folder for all kinds of assets, namely images videos etc.
     - **components**: All service-specific components that are used multiple times across the service. These components are generic and reusable. They do not relate to a certain feature. Imagine a custom input component with validation that is used in various features for example in different forms.
     - **configuration**: Service configuration like login, token handling, language settings, or general setup files like the redux store
     - **data**: All relevant files for data definition to be used for the service; i.e. table configuration; initial service data or configurations, date formatter, currencies, etc.
