@@ -1,25 +1,28 @@
+import { describe, expect } from 'vitest';
 import { configureAccessToken, extractAccessTokenFromWindowLocation, StorageUtil } from '../accessToken';
 
 describe('features/tokenHandling/accessToken', () => {
+    const hashWin = (token: string) =>
+        ({
+            location: {
+                href: `https://airmonads.rio.cloud/#access_token=${token}`,
+            },
+        } as Window);
 
-    const hashWin = (token: string) => ({
-        location: {
-            href: `https://airmonads.rio.cloud/#access_token=${token}`,
-        },
-    } as Window);
+    const queryWin = (token: string) =>
+        ({
+            location: {
+                href: `https://airmonads.rio.cloud/redirectlogin?access_token=${token}`,
+            },
+        } as Window);
 
-    const queryWin = (token: string) => ({
-        location: {
-            href: `https://airmonads.rio.cloud/redirectlogin?access_token=${token}`,
-        },
-    } as Window);
-
-    const makeWin = (token: string) => ({
-        location: {
-            host: 'water.rio.cloud',
-            href: `https://water.rio.cloud/#access_token=${token}`,
-        },
-    } as Window);
+    const makeWin = (token: string) =>
+        ({
+            location: {
+                host: 'water.rio.cloud',
+                href: `https://water.rio.cloud/#access_token=${token}`,
+            },
+        } as Window);
 
     describe('the access token extraction from the window.location', () => {
         const extract = extractAccessTokenFromWindowLocation;

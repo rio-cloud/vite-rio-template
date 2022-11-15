@@ -1,6 +1,8 @@
+import { describe, test, expect, beforeEach, afterEach, vi } from 'vitest';
 import { render, waitFor } from '@testing-library/react';
 import * as reactRedux from 'react-redux';
 import { HashRouter } from 'react-router-dom';
+import '@testing-library/jest-dom';
 
 import App from '../App';
 import messagesEN from '../../features/translations/en-GB.json';
@@ -8,9 +10,9 @@ import { getDisplayMessages, getLocale } from '../../configuration/lang/langSlic
 import { isUserSessionExpired } from '../../configuration/login/loginSlice';
 import { getSessionExpiredAcknowledged } from '../appSlice';
 
-jest.mock('react-redux', () => ({
-    useSelector: jest.fn(),
-    useDispatch: jest.fn(),
+vi.mock('react-redux', () => ({
+    useSelector: vi.fn(),
+    useDispatch: vi.fn(),
 }));
 
 const mockSelectors = (selector: any, mockStore: any = {}) => {
@@ -27,8 +29,8 @@ const mockSelectors = (selector: any, mockStore: any = {}) => {
 };
 
 describe('Test App', () => {
-    const useSelectorMock = reactRedux.useSelector as jest.Mock;
-    const useDispatchMock = reactRedux.useDispatch as jest.Mock;
+    const useSelectorMock = reactRedux.useSelector as any;
+    const useDispatchMock = reactRedux.useDispatch as any;
 
     beforeEach(() => {
         useDispatchMock.mockImplementation(() => () => {});

@@ -1,4 +1,4 @@
-import Spinner from '@rio-cloud/rio-uikit/lib/es/Spinner';
+import Spinner from '@rio-cloud/rio-uikit/Spinner';
 
 import { User, useFetchUsersQuery } from '../../services/userApi';
 import { UserItem } from './UserItem';

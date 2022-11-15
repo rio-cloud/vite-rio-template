@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import ActionBarItem from '@rio-cloud/rio-uikit/lib/es/ActionBarItem';
+import ActionBarItem from '@rio-cloud/rio-uikit/ActionBarItem';
 
 const serviceInfoTitle = 'Service XYZ';
 const serviceInfoVersion = 'v1.1.0';

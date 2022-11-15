@@ -2,8 +2,8 @@ import { lazy } from 'react';
 import { IntlProvider } from 'react-intl';
 import { Route, Routes } from 'react-router-dom';
 import { SessionExpiredDialog } from '@rio-cloud/rio-session-expired-info';
-import ApplicationLayout from '@rio-cloud/rio-uikit/lib/es/ApplicationLayout';
-import NotificationsContainer from '@rio-cloud/rio-uikit/lib/es/NotificationsContainer';
+import ApplicationLayout from '@rio-cloud/rio-uikit/ApplicationLayout';
+import NotificationsContainer from '@rio-cloud/rio-uikit/NotificationsContainer';
 
 import { DEFAULT_LOCALE } from '../configuration/lang/lang';
 import { isUserSessionExpired } from '../configuration/login/loginSlice';

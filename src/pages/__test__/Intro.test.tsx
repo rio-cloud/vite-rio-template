@@ -1,3 +1,4 @@
+import { it } from 'vitest';
 import { createRoot } from 'react-dom/client';
 import { IntlProvider } from 'react-intl';
 

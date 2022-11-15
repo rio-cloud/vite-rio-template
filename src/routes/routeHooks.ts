@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import useAfterMount from '@rio-cloud/rio-uikit/lib/es/useAfterMount';
+import useAfterMount from '@rio-cloud/rio-uikit/useAfterMount';
 
 export const useRouteState = (callback: Function) => {
     const { search } = useLocation();

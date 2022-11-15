@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 
 import { DefaultUserMenu } from '@rio-cloud/rio-user-menu-component';
 import { RioNotifications } from '@rio-cloud/rio-notifications-component';
-import ApplicationHeader from '@rio-cloud/rio-uikit/lib/es/ApplicationHeader';
+import ApplicationHeader from '@rio-cloud/rio-uikit/ApplicationHeader';
 import IframeResizer from 'iframe-resizer-react';
 
 import { config } from '../../config';
