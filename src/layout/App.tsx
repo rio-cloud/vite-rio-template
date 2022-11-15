@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { SessionExpiredDialog } from '@rio-cloud/rio-session-expired-info';
 import ApplicationLayout from '@rio-cloud/rio-uikit/lib/es/ApplicationLayout';
 import NotificationsContainer from '@rio-cloud/rio-uikit/lib/es/NotificationsContainer';
+
 import { DEFAULT_LOCALE } from '../configuration/lang/lang';
 import { isUserSessionExpired } from '../configuration/login/loginSlice';
 import { useAppDispatch, useAppSelector } from '../configuration/setup/hooks';
@@ -14,6 +15,7 @@ import RouteUpdater from '../routes/RouteUpdater';
 import { getSessionExpiredAcknowledged, hideSessionExpiredDialog } from './appSlice';
 import AppHeader from '../features/header/AppHeader';
 import SuspendedWithSpinner from '../components/SuspendedWithSpinner';
+
 import './App.css';
 
 // Lazy load pages for better performance and automatically split the bundle accordingly
@@ -28,7 +30,7 @@ const App = () => {
     const isSessionExpired = useAppSelector(isUserSessionExpired);
     const sessionExpiredAcknowledged = useAppSelector(getSessionExpiredAcknowledged);
 
-    if (!displayMessages || !userLocale) {
+    if (!(displayMessages && userLocale)) {
         return null;
     }
 

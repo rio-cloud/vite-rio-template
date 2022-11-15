@@ -1,5 +1,3 @@
-import './utils/polyfills';
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
@@ -24,7 +22,11 @@ const renderApplication = () => {
     );
 };
 
-if (import.meta.env.DEV && config.enableMockServer) {
+const isDev = import.meta.env.DEV;
+const isProd = import.meta.env.PROD;
+const isProdPreview = import.meta.env.VITE_PRODUCTION_PREVIEW;
+
+if ((isDev && config.enableMockServer) || isProdPreview) {
     import('../mocks/serviceMock').then(({ worker }) => {
         worker.start();
         main(renderApplication);
@@ -33,6 +35,6 @@ if (import.meta.env.DEV && config.enableMockServer) {
 
 if (window.location.href.startsWith(config.login.redirectUri as string)) {
     handleLoginRedirect();
-} else if (import.meta.env.PROD) {
+} else if (isProd && !isProdPreview) {
     main(renderApplication);
 }
