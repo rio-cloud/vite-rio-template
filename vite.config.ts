@@ -10,7 +10,7 @@ export default defineConfig({
         sourcemap: true,
         rollupOptions: {
             manualChunks: {
-                commonVendor: ['core-js', '@sentry/browser', 'framer-motion', 'oidc-client-ts'],
+                'vendor.common': ['@sentry/browser', 'framer-motion', 'oidc-client-ts'],
             },
         },
     },
