@@ -43,7 +43,7 @@ The RIO template is opinionated and comes already with some pre-defined librarie
 - Form validation
     - [React Hook Form](https://react-hook-form.com/)
 - *Testing*
-    - [Jest](https://jestjs.io/) as test runner and testing framework for unit tests
+    - [Vitest](https://vitest.dev//) as test runner and testing framework for unit tests
     - [Testing Library](https://testing-library.com/) as the testing utility
     - [Cypress](https://www.cypress.io/) as integration, end-to-end, monitoring test suite
 - *API Mocking*:
@@ -146,6 +146,39 @@ Note, there is no dedicated root folder for all the type files on purpose, as we
 - In case you use react-router v5, you might update the `history` package to min v5.3.0
 - If you use import alias like '~/', replace them with path imports as vite does not know any alias by default
 - Recommended: Adapt the project folder structure to the template folder structure. This will ensure that developers feel right at home when working with your project and other projects.
+
+### Migrate to Vitest
+- Vitest is a replacement for Jest to work with EcmaScript Modules and eliminate the need for Babel.
+- Add the following Vitest dev dependencies:
+    ````
+    npm i -D vitest vitest-fetch-mock
+    ````
+- Update the test scripts in your `package.json` to use vitest
+    ````
+    "test": "vitest run",
+    "test:ci": "vitest run --reporter=junit --outputFile.junit=./results/junit.xml",
+    "test-dev": "vitest",
+    "coverage": "vitest run --coverage",
+    ````
+- Add the respective vitest imports to your text files
+    ````
+    import { describe, test, expect, beforeEach, afterEach, vi } from 'vitest';
+    ````
+- Replace all `jest` instances from your test code like `jest.mock()` with `vi.mock()`
+- Update all UIKIT component imports to use EcmaScript Module imports like:
+    `````
+    // OLD:
+    import ApplicationLayout from '@rio-cloud/rio-uikit/lib/es/ApplicationLayout';
+
+    // NEW:
+    import ApplicationLayout from '@rio-cloud/rio-uikit/ApplicationLayout';
+    `````
+
+- Remove all Jest and Babel dependencies
+    ````
+    npm uninstall @types/jest jest-changed-files jest-environment-jsdom jest-junit
+    ````
+- Remove all jest confuration from your `package.json` or dedicated config files
 
 ### Migrate to Mock Service Worker (MSW)
 - Add MWS dependency to package.json
