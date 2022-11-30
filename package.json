@@ -16,6 +16,7 @@
         "lint-fix": "npm run lint -- --fix",
         "audit": "npm audit --production --registry https://registry.npmjs.org --parseable",
         "format-code": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+        "format-code-on-commit": "npm run format-code && git add",
         "pull-translations": "phrase pull --access_token $PHRASEAPP_ACCESS_TOKEN && npm run merge-translations",
         "merge-translations": "nodenv ./mergeTranslations.js",
         "cypress-open": "cypress open",
@@ -68,11 +69,10 @@
         "eslint-plugin-react": "7.31.11",
         "eslint-plugin-react-hooks": "4.6.0",
         "eslint-plugin-testing-library": "5.9.1",
-        "husky": "8.0.2",
         "license-checker": "25.0.1",
-        "lint-staged": "13.0.3",
         "msw": "0.49.0",
         "nodenv": "0.1.0",
+        "pre-commit": "1.2.2",
         "prettier": "2.7.1",
         "rollup-plugin-visualizer": "5.8.3",
         "start-server-and-test": "1.14.0",
@@ -91,17 +91,9 @@
         "Edge >= 95",
         "Safari >= 14"
     ],
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
-    "lint-staged": {
-        "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-            "prettier --write",
-            "git add"
-        ]
-    },
+    "pre-commit": [
+        "format-code-on-commit"
+    ],
     "msw": {
         "workerDirectory": ""
     }
