@@ -34,7 +34,7 @@ export interface SessionRenewedResult {
     locale: string;
 }
 
-export const adaptPublishedInfo = (result: any): SessionRenewedResult => ({
+export const adaptPublishedInfo = (result: User): SessionRenewedResult => ({
     accessToken: result.access_token,
     idToken: result.profile,
     locale: result.profile?.locale ?? 'en-GB',
@@ -111,7 +111,7 @@ export const configureMockUserManager = (oauthConfig: OAuthConfig): UserManager 
         };
 
         const user = new User(userSettings);
-        oauthConfig.onSessionRenewed(adaptPublishedInfo(userSettings));
+        oauthConfig.onSessionRenewed(adaptPublishedInfo(user));
         return Promise.resolve(user);
     };
 
