@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-
 import { DEFAULT_ROUTE, routes } from './Router';
 
 const isUnknownRoute = (routeNames: string[], pathname: string): boolean =>
