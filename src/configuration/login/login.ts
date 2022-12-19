@@ -1,6 +1,14 @@
 /* eslint-disable camelcase, no-console */
-import { UserProfile as Profile, User, UserManager, WebStorageStateStore, InMemoryWebStorage } from 'oidc-client-ts';
+import {
+    UserProfile as Profile,
+    User,
+    UserManager,
+    UserManagerSettings,
+    WebStorageStateStore,
+    InMemoryWebStorage,
+} from 'oidc-client-ts';
 import join from 'lodash/fp/join';
+
 import { mapUserProfile } from './userProfile';
 import { config } from '../../config';
 import { OAuthConfig } from '..';
@@ -37,10 +45,9 @@ export const createUserManager = () => {
     const redirectUri = config.login.redirectUri;
     const silentRedirectUri = config.login.silentRedirectUri;
 
-    const settings = {
+    const settings: UserManagerSettings = {
         authority: `${config.login.authority}`,
         client_id: `${config.login.clientId}`,
-        client_secret: `${config.login.clientId}`,
         loadUserInfo: false,
         redirect_uri: `${redirectUri}`,
         response_type: 'code',
@@ -48,7 +55,8 @@ export const createUserManager = () => {
         silent_redirect_uri: `${silentRedirectUri || redirectUri}`,
         includeIdTokenInSilentRenew: false,
         automaticSilentRenew: true,
-        staleStateAge: 600,
+        monitorSession: true,
+        staleStateAgeInSeconds: 600,
         userStore: new WebStorageStateStore({ store: new InMemoryWebStorage() }),
     };
 
@@ -68,7 +76,7 @@ export const configureUserManager = (oauthConfig: OAuthConfig, userManager: User
         retrySigninSilent(oauthConfig, userManager);
     });
 
-    userManager.events.addUserSignedOut((...args) => {
+    userManager.events.addUserSignedOut(() => {
         oauthConfig.onSessionExpired();
     });
 
