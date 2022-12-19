@@ -1,11 +1,12 @@
-import { configureStore, Reducer } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
 
 import configReducer from './configSlice';
 import loginReducer from '../login/loginSlice';
 import langReducer from '../lang/langSlice';
 import tokenReducer from '../tokenHandling/tokenSlice';
-import appReducer from '../../layout/appSlice';
+import appReducer from '../../data/appSlice';
+import userReducer from '../../features/users/userSlice';
 import { userApi } from '../../services/userApi';
 
 export const store = configureStore({
@@ -13,6 +14,7 @@ export const store = configureStore({
         config: configReducer,
         lang: langReducer,
         app: appReducer,
+        user: userReducer,
         login: loginReducer,
         tokenHandling: tokenReducer,
 

@@ -1,10 +1,5 @@
 import qs, { IParseOptions, IStringifyOptions } from 'qs';
 
-export const DEFAULT_ROUTE = '/intro';
-export const ROUTE_MORE = '/more';
-
-export const routes = [DEFAULT_ROUTE, ROUTE_MORE];
-
 export const STRINGIFY_OPTIONS: IStringifyOptions = {
     // required to stringify arrays into comma separated strings
     arrayFormat: 'comma',

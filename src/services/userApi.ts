@@ -2,6 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { prepareHeaders } from '../configuration/tokenHandling/prepareHeaders';
 
 export interface User {
+    id: { name: string; value: string };
     name: {
         title: string;
         first: string;
@@ -20,9 +21,9 @@ export const userApi = createApi({
     reducerPath: 'userApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://randomuser.me/api/', prepareHeaders }),
     endpoints: (builder) => ({
-        fetchUsers: builder.query<User[], string>({
+        fetchUsers: builder.query<User[], string | undefined>({
             query: () => ({
-                url: '?results=10&inc=name,email,picture',
+                url: '?results=10&inc=id,name,email,picture',
                 responseHandler: async (response: Response) => {
                     const data = await response.json();
                     return data.results;

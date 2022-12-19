@@ -1,22 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { HashRouter } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
 
 import { config } from './config';
 import { main } from './configuration';
 import { store } from './configuration/setup/store';
 import { handleLoginRedirect } from './configuration/login/redirect';
 import { ErrorBoundary } from './components/ErrorBoundary';
-import App from './layout/App';
+import { router } from './routes/Router';
 
 const renderApplication = () => {
-    ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+    createRoot(document.getElementById('root') as HTMLElement).render(
         <ErrorBoundary>
             <Provider store={store}>
-                <HashRouter>
-                    <App />
-                </HashRouter>
+                <RouterProvider router={router} />
             </Provider>
         </ErrorBoundary>
     );

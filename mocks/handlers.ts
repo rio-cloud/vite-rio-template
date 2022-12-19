@@ -7,6 +7,7 @@ const randomUserHandler = rest.get('https://randomuser.me/api', (req, res, ctx) 
         ctx.json({
             results: [
                 {
+                    id: { name: 'PPS', value: '1000598T' },
                     name: { title: 'Mr', first: 'Tage', last: 'Lunde' },
                     email: 'tage.lunde@example.com',
                     picture: {
@@ -16,6 +17,7 @@ const randomUserHandler = rest.get('https://randomuser.me/api', (req, res, ctx) 
                     },
                 },
                 {
+                    id: { name: 'PPS', value: '1100598T' },
                     name: { title: 'Mrs', first: 'Amanda', last: 'Oliveira' },
                     email: 'amanda.oliveira@example.com',
                     picture: {
@@ -25,6 +27,7 @@ const randomUserHandler = rest.get('https://randomuser.me/api', (req, res, ctx) 
                     },
                 },
                 {
+                    id: { name: 'PPS', value: '1200598T' },
                     name: { title: 'Mr', first: 'Pat', last: 'Grant' },
                     email: 'pat.grant@example.com',
                     picture: {
@@ -34,6 +37,7 @@ const randomUserHandler = rest.get('https://randomuser.me/api', (req, res, ctx) 
                     },
                 },
                 {
+                    id: { name: 'PPS', value: '1300598T' },
                     name: { title: 'Ms', first: 'Sharron', last: 'Campbell' },
                     email: 'sharron.campbell@example.com',
                     picture: {
@@ -43,6 +47,7 @@ const randomUserHandler = rest.get('https://randomuser.me/api', (req, res, ctx) 
                     },
                 },
                 {
+                    id: { name: 'PPS', value: '1400598T' },
                     name: { title: 'Miss', first: 'Tracy', last: 'Mills' },
                     email: 'tracy.mills@example.com',
                     picture: {

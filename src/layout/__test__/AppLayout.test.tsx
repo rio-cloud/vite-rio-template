@@ -4,11 +4,11 @@ import * as reactRedux from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 import '@testing-library/jest-dom';
 
-import App from '../App';
+import AppLayout from '../AppLayout';
 import messagesEN from '../../features/translations/en-GB.json';
 import { getDisplayMessages, getLocale } from '../../configuration/lang/langSlice';
 import { isUserSessionExpired } from '../../configuration/login/loginSlice';
-import { getSessionExpiredAcknowledged } from '../appSlice';
+import { getSessionExpiredAcknowledged } from '../../data/appSlice';
 
 vi.mock('react-redux', () => ({
     useSelector: vi.fn(),
@@ -28,7 +28,7 @@ const mockSelectors = (selector: any, mockStore: any = {}) => {
     return selector(mockStore);
 };
 
-describe('Test App', () => {
+describe('Test AppLayout', () => {
     const useSelectorMock = reactRedux.useSelector as any;
     const useDispatchMock = reactRedux.useDispatch as any;
 
@@ -43,7 +43,7 @@ describe('Test App', () => {
     });
 
     test('Application layout is rendered', async () => {
-        const { findByTestId } = renderWithRouter(<App />);
+        const { findByTestId } = renderWithRouter(<AppLayout />);
 
         await waitFor(async () => {
             const layout = await findByTestId('app-layout');

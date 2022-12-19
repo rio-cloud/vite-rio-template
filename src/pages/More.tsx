@@ -1,6 +1,7 @@
 import { FormattedMessage } from 'react-intl';
 
 import RandomUsers from '../features/users/RandomUsers';
+import UserSidebarLoader from '../features/users/userSidebar/UserSidebarLoader';
 
 const More = () => (
     <div className="intro max-width-900 margin-auto">
@@ -10,6 +11,7 @@ const More = () => (
         <div className="panel panel-default shadow-default">
             <div className="panel-body">
                 <RandomUsers />
+                <UserSidebarLoader />
             </div>
         </div>
     </div>
