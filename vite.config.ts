@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
@@ -9,9 +11,11 @@ export default defineConfig({
         outDir: 'build',
         sourcemap: true,
         rollupOptions: {
-            manualChunks: {
-                'vendor.common': ['@sentry/browser', 'framer-motion', 'oidc-client-ts'],
-            },
+            output: {
+                manualChunks: {
+                    'vendor.common': ['@sentry/browser', 'framer-motion', 'oidc-client-ts'],
+                },
+            }
         },
     },
     server: {
