@@ -56,8 +56,9 @@ The RIO template is opinionated and comes already with some pre-defined librarie
 - *Static code analysis and formatting*:
     - [ESLint](https://eslint.org/)
     - [Prettier](https://prettier.io/) for autoformatting source code
-
-
+- *Automated dependency updates*:
+    - [Renovate](https://docs.renovatebot.com/) basic configuration file only, further configurations must be customized.
+  
 ## Folder Structure
 A short explanation of what each folder is meant for:
 
