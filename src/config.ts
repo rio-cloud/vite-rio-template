@@ -15,6 +15,7 @@ export interface ConfigState {
         oauthScope: string[];
         mockAuthorization: boolean;
         mockLocale: string | undefined;
+        mockTenant: string | undefined;
         preventRedirect: boolean;
         redirectUri: string | undefined;
         silentRedirectUri: string | undefined;
@@ -42,6 +43,7 @@ export const config: ConfigState = {
         oauthScope: ['openid', 'profile', 'email'],
         mockAuthorization: import.meta.env.DEV,
         mockLocale: import.meta.env.VITE_LOGIN_MOCK_LOCALE,
+        mockTenant: import.meta.env.VITE_LOGIN_MOCK_TENANT,
         preventRedirect: asBool(import.meta.env.VITE_LOGIN_PREVENT_REDIRECT),
         redirectUri: import.meta.env.VITE_LOGIN_REDIRECT_URI,
         silentRedirectUri: import.meta.env.VITE_LOGIN_SILENT_REDIRECT_URI,

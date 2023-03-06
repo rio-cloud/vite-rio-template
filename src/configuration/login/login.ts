@@ -100,6 +100,7 @@ export const configureMockUserManager = (oauthConfig: OAuthConfig): UserManager 
                 name: 'Test Client',
                 sub: 'prod-rio-users:mock-user',
                 locale: config.login.mockLocale,
+                tenant: config.login.mockTenant,
             },
             id_token: 'id_token',
             session_state: 'session_state',
