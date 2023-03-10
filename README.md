@@ -67,10 +67,10 @@ A short explanation of what each folder is meant for:
     - **components**: All service-specific components that are used multiple times across the service. These components are generic and reusable. They do not relate to a certain feature. Imagine a custom input component with validation that is used in various features for example in different forms.
     - **configuration**: Service configuration like login, token handling, language settings, or general setup files like the redux store
     - **data**: All relevant files for data definition to be used for the service; i.e. table configuration; initial service data or configurations, date formatter, currencies, etc.
-    - **features**: The folder for all feature-relevant things. Each feature is meant to be in a dedicated subfolder that colocates feature-relevant files. Examples are header, sidebars, maps, trees, user lists, tables, forms, etc. Features are rather isolated and don't interact with other features. This way, they are easy to replace, remove, or change. Features are combined on pages.
+    - **features**: The folder for all feature-relevant things. Each feature is meant to be in a dedicated subfolder that co-locates feature-relevant files. Examples are header, sidebars, maps, trees, user lists, tables, forms, etc. Features are rather isolated and don't interact with other features. This way, they are easy to replace, remove, or change. Features are combined on pages.
     - **hooks**: All custom hooks used across the project
     - **layout**: The folder for the overarching layouts as defined in App.tsx
-    - **pages**: The folder for all navigatable service pages. Pages are composed of features and components. For the Frontend template, these are the "intro" and "more" pages. It actually represents, what is defined in the header as routes. But this could also be sub pages in some cases.
+    - **pages**: The folder for all navigable service pages. Pages are composed of features and components. For the Frontend template, these are the "intro" and "more" pages. It actually represents, what is defined in the header as routes. But this could also be sub pages in some cases.
     - **routes**: All route-related files like route definitions, route updater, route hooks etc.
     - **services**: All service API connections, redux-toolkit-query APIs or thunks, io-ts converter, model types, etc.
     - **utils**: Common utility files and functions
@@ -78,7 +78,7 @@ A short explanation of what each folder is meant for:
     - **integration**: all cypress integration tests
     - **utils**: utility functions that are used in integration tests
 
-Note, there is no dedicated root folder for all the type files on purpose, as we believe that the typings should be colocated to the files where they originate from. This means, that component types belong to the respective component folder, model types belong to the respective API in the service folder, etc.
+Note, there is no dedicated root folder for all the type files on purpose, as we believe that the typings should be co-located to the files where they originate from. This means, that component types belong to the respective component folder, model types belong to the respective API in the service folder, etc.
 
 
 ## Migrate existing projects to Vite
@@ -103,13 +103,13 @@ Note, there is no dedicated root folder for all the type files on purpose, as we
 - Move the `index.html` out of the public folder into the root. 
     - Adapt the entry point for your index.tsx file to: `<script type="module" src="/src/index.tsx"></script>`
     - Remove the public folder
-    - Adapt the CICD scripts accoringly
+    - Adapt the CICD scripts accordingly
 - Remove `analyze` script for not using "source-map-explorer" but rather "rollup-plugin-visualizer". Later is already configured in `vite.config.ts`
 - Replace node environment variables with vite imports
     - `process.env.REACT_APP_*` to `import.meta.env.VITE_*`
     - `process.env.NODE_ENV !== 'production'` with `import.meta.env.DEV`
 - Rename REACT_APP_* config variables to VITE_*
-    - Update .env.production and .env.development file as well as src/config.ts plus all occurences in your code
+    - Update .env.production and .env.development file as well as src/config.ts plus all occurrences in your code
 - Copy the `.env.development` into a `.env.local` for your local config.
 - Add files to your .gitignore
     ````
@@ -134,7 +134,7 @@ Note, there is no dedicated root folder for all the type files on purpose, as we
         },
     });
     `````
-- Optionaly, change default port to your old project settings by editing the `vite.config.ts`and add the server.port
+- Optionally, change default port to your old project settings by editing the `vite.config.ts`and add the server.port
     ````
     export default defineConfig({
         // ....
@@ -179,7 +179,7 @@ Note, there is no dedicated root folder for all the type files on purpose, as we
     ````
     npm uninstall @types/jest jest-changed-files jest-environment-jsdom jest-junit
     ````
-- Remove all jest confuration from your `package.json` or dedicated config files
+- Remove all jest configuration from your `package.json` or dedicated config files
 
 ### Migrate to Mock Service Worker (MSW)
 - Add MWS dependency to package.json
