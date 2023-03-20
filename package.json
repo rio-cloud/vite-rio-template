@@ -28,7 +28,7 @@
         "@reduxjs/toolkit": "1.9.1",
         "@rio-cloud/rio-notifications-component": "0.2.4",
         "@rio-cloud/rio-session-expired-info": "0.9.14",
-        "@rio-cloud/rio-uikit": "0.16.1",
+        "@rio-cloud/rio-uikit": "0.16.2",
         "@rio-cloud/rio-user-menu-component": "2.0.3",
         "@sentry/browser": "7.27.0",
         "events": "3.3.0",
