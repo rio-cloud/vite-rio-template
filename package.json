@@ -11,7 +11,6 @@
         "test:ci": "vitest run --reporter=junit --outputFile.junit=./results/junit.xml",
         "test-dev": "vitest",
         "coverage": "vitest run --coverage",
-        "license-check": "license-checker --production --json --onlyAllow \"`cat whitelist.txt`\" --excludePackages \"@rio-cloud/vite-rio-template@0.2.0\" --out licenses.txt",
         "lint": "eslint src",
         "lint-fix": "npm run lint -- --fix",
         "audit": "npm audit --production --registry https://registry.npmjs.org --parseable",
