@@ -14,7 +14,7 @@ npx degit rio-cloud/vite-rio-template my-rio-service-web
 Or clone the project manually.
 
 ### How to configure your new project
-- Update the `package.json` to set the application name and use that name also for the license-check script.
+- Update the `package.json` to set the application name.
 - (Optional) Rename the `.env.development` into a `.env.local` for your local config and adapt it to your needs in case you do not want to track these changes by git.
     See https://vitejs.dev/guide/env-and-mode.html#env-files for details on *.env* Files
 - (Optional) Change the dev server port in `vite.config.ts` to your likings. In case you change it, don't forget to update it in the `package.json` for the `cypress-ci` script as well as in your `.env.local` config.
